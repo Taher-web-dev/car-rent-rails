@@ -17,10 +17,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_25_131956) do
   create_table "cars", force: :cascade do |t|
     t.string "brand"
     t.string "model"
-    t.date "model_year"
+    t.integer "model_year"
     t.string "photo_url"
     t.text "description"
-    t.boolean "reserved"
+    t.boolean "reserved", default: false
     t.decimal "rent_fee"
     t.integer "likes_counter"
     t.integer "reservation_counter"

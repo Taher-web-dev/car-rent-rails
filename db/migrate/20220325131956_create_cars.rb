@@ -3,7 +3,7 @@ class CreateCars < ActiveRecord::Migration[7.0]
     create_table :cars do |t|
       t.string :brand 
       t.string :model
-      t.date :model_year
+      t.integer :model_year
       t.string :photo_url
       t.text :description
       t.boolean :reserved ,default: false
