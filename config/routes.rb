@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   namespace :api do
     resources :users, only: [:index]
     resources :cars, only: [:index] do
-      resources :reservations, only: %i[index create]
+      resources :reservations, only: %i[index create, destroy, update]
     end
     resources :current_infos, only: [:index]
   end

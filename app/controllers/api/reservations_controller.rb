@@ -22,7 +22,26 @@ module Api
       end
     end
 
+    def update
+      if @reservation.update(update_param)
+        render json: @reservation
+      else
+        render json: @reservation.errors, status: :unprocessable_entity
+
+    end
+
+
+    def destroy
+      @reservation = Reservation.find(params[:id])
+      @reservation.destroy
+      render json: { reservation: @reservation, message: 'Reservation successfully deleted' }
+    end
+
     private
+
+    def update_param
+      params.require(:reservation).permit(:start_date, :city, :user_id)
+    end
 
     def reserve_param
       params.require(:reservation).permit(:start_date, :city, :user_id)

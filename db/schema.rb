@@ -22,8 +22,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_28_114002) do
     t.text "description"
     t.boolean "reserved", default: false
     t.decimal "rent_fee"
-    t.integer "likes_counter"
-    t.integer "reservation_counter"
+    t.integer "likes_counter", default: 0
+    t.integer "reservation_counter", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
