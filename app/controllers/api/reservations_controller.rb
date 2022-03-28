@@ -1,4 +1,4 @@
-class Api::reservationsController < ApplicationController
+class Api::ReservationsController < ApplicationController
     def index
         @reserves = Reservation.all
         render json: { reserves: @reserves }.to_json
@@ -22,6 +22,6 @@ class Api::reservationsController < ApplicationController
 
     private
     def reserve_param
-        params.require(:reservation).permit(:start_date)
+        params.require(:reservation).permit(:start_date, :city)
     end
 end
