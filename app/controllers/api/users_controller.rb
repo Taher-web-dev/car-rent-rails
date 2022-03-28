@@ -8,19 +8,19 @@ class Api::UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       if Message.all.length == 0
-        Message.create(content: 'User created successfully.')
+        Message.create(content: 'User created successfully.', statut: true)
       else
         idd = Message.ids[0]
         @message = Message.find(idd)
-        @message.update(content: 'User created successfully.')
+        @message.update(content: 'User created successfully.', statut: true)
       end
     else
       if Message.all.length == 0
-        Message.create(content: 'User could not be created!')
+        Message.create(content: 'User could not be created!', statut: false)
       else
         idd = Message.ids[0]
         @message = Message.find(idd)
-        @message.update(content: 'User could not be created!')
+        @message.update(content: 'User could not be created!', statut: false)
       end
     end
   
