@@ -10,9 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_24_103417) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_28_102943) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cars", force: :cascade do |t|
+    t.string "brand"
+    t.string "model"
+    t.integer "model_year"
+    t.string "photo_url"
+    t.text "description"
+    t.boolean "reserved", default: false
+    t.decimal "rent_fee"
+    t.integer "likes_counter", default: 0
+    t.integer "reservation_counter", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "messages", force: :cascade do |t|
     t.text "content"
@@ -26,6 +40,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_24_103417) do
     t.text "photo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "role", default: "user"
   end
 
 end

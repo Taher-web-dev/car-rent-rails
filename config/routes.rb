@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   # root "articles#index"
   namespace :api do 
     resources :users , only:[:index]
+    resources :cars , only:[:index]
     resources :current_infos, only:[:index]
   end
 end
