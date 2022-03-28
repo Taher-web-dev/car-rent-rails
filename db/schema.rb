@@ -22,8 +22,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_28_114002) do
     t.text "description"
     t.boolean "reserved", default: false
     t.decimal "rent_fee"
-    t.integer "likes_counter", default: 0
-    t.integer "reservation_counter", default: 0
+    t.integer "likes_counter"
+    t.integer "reservation_counter"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -35,6 +35,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_28_114002) do
     t.boolean "statut"
   end
 
+  create_table "reservations", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "car_id", null: false
+    t.string "start_date"
+    t.string "city"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["car_id"], name: "index_reservations_on_car_id"
+    t.index ["user_id"], name: "index_reservations_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "city"
@@ -44,4 +55,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_28_114002) do
     t.string "role", default: "user"
   end
 
+  add_foreign_key "reservations", "cars"
+  add_foreign_key "reservations", "users"
 end
