@@ -8,9 +8,8 @@ module Api
     end
 
     def create
-      reserve = Reservation.new(start_date: params[:start_date], city: params[:city])
+      reserve = Reservation.new(reserve_param)
       @car = Car.find(params[:car_id])
-      reserve.user_id = User.all[0].id
       reserve.car_id = @car.id
       if reserve.save
         respond_to do |format|
@@ -26,7 +25,7 @@ module Api
     private
 
     def reserve_param
-      params.require(:reservation).permit(:start_date, :city)
+      params.require(:reservation).permit(:start_date, :city, :user_id)
     end
   end
 end
