@@ -1,10 +1,10 @@
 class Api::CurrentInfosController < ApplicationController
   def index
-    @message = ''
+    @message = nil
     begin
-      @message = Message.all[0].content
+      @message = Message.all[0]
     rescue
-      @message = ''
+      @message = nil
     end
     render json: { message: @message }
   end
