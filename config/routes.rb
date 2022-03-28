@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   # root "articles#index"
   namespace :api do 
     resources :users , only:[:index]
-    resources :cars , only:[:index]
+    resources :cars , only:[:index] do
+      resources :reservations, only: %i[index create] 
+    end
     resources :current_infos, only:[:index]
   end
 end

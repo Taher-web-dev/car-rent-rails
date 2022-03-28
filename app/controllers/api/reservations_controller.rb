@@ -5,11 +5,11 @@ class Api::ReservationsController < ApplicationController
     end
 
     def create
-        @reserve = Reservation.new(reserve_param)
+        reserve = Reservation.new(start_date: params[:start_date], city: params[:city])
         @car = Car.find(params[:car_id])
-        @reserve.user_id = current_user.id
-        @reserve.car_id = @car.id
-        if @reserve.save
+        reserve.user_id = User.all[0].id
+        reserve.car_id = @car.id
+        if reserve.save
             respond_to do |format|
               format.json { render json: 'reserved sucessfully'.to_json, status: :ok }
             end
