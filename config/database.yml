@@ -22,8 +22,6 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: ruby_db
   password: 77471580t
-  host: localhost
-  port: 5432
 
 development:
   <<: *default
