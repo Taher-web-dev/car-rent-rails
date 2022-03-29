@@ -9,8 +9,6 @@ module Api
 
     def create
       reserve = Reservation.new(reserve_param)
-      @car = Car.find(params[:car_id])
-      reserve.car_id = @car.id
       if reserve.save
         respond_to do |format|
           format.json { render json: 'reserved sucessfully'.to_json, status: :ok }
@@ -48,7 +46,7 @@ module Api
     end
 
     def reserve_param
-      params.require(:reservation).permit(:start_date, :city, :user_id)
+      params.require(:reservation).permit(:start_date, :city, :user_id, :car_id)
     end
   end
 end
