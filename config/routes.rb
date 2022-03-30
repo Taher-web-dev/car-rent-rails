@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   namespace :api do
-    resources :users, only: [:index, :create]
+    resources :users, only: [:index]
     resources :cars, only: [:index]
-    resources :reservations, only: %i[index create]
+    resources :reservations, only: [:index, :create, :destroy, :update]
+    resources :current_infos, only: [:index]
   end
 end
