@@ -18,7 +18,7 @@ module Api
       end
     end
 
-    def destroy 
+    def destroy
       @car = Car.find(params[:id])
       if @car.destroy
         respond_to do |format|
@@ -30,6 +30,21 @@ module Api
         end
       end
     end
+
+    def update
+      @car = Car.find(params[:id])
+      nb_like = @car.likes_counter
+      if @car.update(likes_counter: nb_like + 1)
+        respond_to do |format|
+          format.json { render json: 'Car updated successfully.'.to_json, status: :ok }
+        end
+      else
+        respond_to do |format|
+          format.json { render json: 'Something went wrong!'.to_json, status: :not_ok }
+        end
+      end
+    end
+
     private
 
     def car_params
