@@ -26,7 +26,7 @@ module Api
         render json: @reservation
       else
         render json: @reservation.errors, status: :unprocessable_entity
-
+      end
     end
 
 
@@ -36,7 +36,7 @@ module Api
         render json: { reservation: @reservation, message: 'Reservation successfully deleted' }
       else
         render json: @reservation.errors, status: :unprocessable_entity
-
+      end
     end
 
     private
