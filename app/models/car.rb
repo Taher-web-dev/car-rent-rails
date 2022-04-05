@@ -6,4 +6,5 @@ class Car < ApplicationRecord
   validates :model_year, presence: true, numericality: { greater_than: 1900 }, length: { maximum: 4 }
   validates :photo_url, presence: true
   validates :description, presence: true
+  has_many :likes, dependent: :destroy
 end
