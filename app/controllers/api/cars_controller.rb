@@ -8,12 +8,14 @@ module Api
     end
 
     def create
-      @car = Car.new(car_params)
-      respond_to do |format|
-        if @car.save
-          format.json { render :show, status: :created, location: @car }
-        else
-          format.json { render json: @car.errors, status: :unprocessable_entity }
+      @car = Car.new(car_param)
+      if @car.save
+        respond_to do |format|
+          format.json { render json: 'car created sucessfully'.to_json, status: :ok }
+        end
+      else
+        respond_to do |format|
+          format.json { render json: 'Something went wrong'.to_json, status: :ok }
         end
       end
     end
