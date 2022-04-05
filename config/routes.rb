@@ -10,6 +10,6 @@ Rails.application.routes.draw do
     resources :cars, only: %i[index create destroy update]
     resources :reservations, only: %i[index create destroy update]
     resources :current_infos, only: [:index]
-    resources :likes, only: [:create]
+    resources :likes, only: [:index, :create]
   end
 end

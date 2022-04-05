@@ -1,4 +1,8 @@
 class Api::LikesController < ApplicationController
+  def index
+    @likes = Like.all
+    render json: { likes: @likes }
+  end
   def create
     @like = Like.find_by(likes_param)
     @car = Car.find(likes_param[:car_id])
