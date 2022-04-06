@@ -23,9 +23,13 @@ module Api
     def update
       @car = Car.find(update_param[:id])
       if @car.update(update_param)
-        render json: @car
+        respond_to do |format|
+          format.json { render json: 'Car updated successfully.'.to_json, status: :ok }
+        end
       else
-        render json: @car.errors, status: :unprocessable_entity
+        respond_to do |format|
+          format.json { render json: 'Something went wrong!'.to_json, status: :not_ok }
+        end
       end
     end
 

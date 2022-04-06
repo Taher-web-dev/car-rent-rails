@@ -12,9 +12,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 20_220_328_163_240) do
+ActiveRecord::Schema[7.0].define(version: 20_220_405_080_815) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension 'plpgsql'
 
   create_table 'cars', force: :cascade do |t|
     t.string 'brand'
@@ -28,6 +28,15 @@ ActiveRecord::Schema[7.0].define(version: 20_220_328_163_240) do
     t.integer 'reservation_counter', default: 0
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
+  end
+
+  create_table 'likes', force: :cascade do |t|
+    t.bigint 'car_id', null: false
+    t.bigint 'user_id', null: false
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['car_id'], name: 'index_likes_on_car_id'
+    t.index ['user_id'], name: 'index_likes_on_user_id'
   end
 
   create_table 'reservations', force: :cascade do |t|
@@ -50,6 +59,8 @@ ActiveRecord::Schema[7.0].define(version: 20_220_328_163_240) do
     t.string 'role', default: 'user'
   end
 
+  add_foreign_key 'likes', 'cars'
+  add_foreign_key 'likes', 'users'
   add_foreign_key 'reservations', 'cars'
   add_foreign_key 'reservations', 'users'
 end

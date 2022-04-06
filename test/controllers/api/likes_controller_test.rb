@@ -3,7 +3,7 @@
 require 'test_helper'
 
 module Api
-  class CurrentInfosControllerTest < ActionDispatch::IntegrationTest
+  class LikesControllerTest < ActionDispatch::IntegrationTest
     # test "the truth" do
     #   assert true
     # end
