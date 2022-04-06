@@ -33,6 +33,14 @@ module Api
       end
     end
 
+    def destroy
+      @car = Car.find(params[:id])
+      if @car.destroy
+        render json: { car: @car, status: :ok }
+      else
+        render json: @car.errors, status: :unprocessable_entity
+      end
+    end
     private
 
     def update_param
