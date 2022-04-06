@@ -29,6 +29,7 @@ module Api
       end
     end
 
+
     def destroy
       @reservation = Reservation.find(params[:id])
       if @reservation.destroy

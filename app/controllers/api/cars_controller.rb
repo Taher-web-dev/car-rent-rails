@@ -36,7 +36,7 @@ module Api
     def destroy
       @car = Car.find(params[:id])
       if @car.destroy
-        render json: { car: @car, message: 'Car successfully deleted' }
+        render json: { car: @car, status: :ok }
       else
         render json: @car.errors, status: :unprocessable_entity
       end
