@@ -29,7 +29,6 @@ module Api
       end
     end
 
-
     def destroy
       @reservation = Reservation.find(params[:id])
       if @reservation.destroy
@@ -42,7 +41,7 @@ module Api
     private
 
     def update_param
-      params.require(:reservation).permit(:id, :start_date, :city, :user_id, car_id)
+      params.require(:reservation).permit(:id, :start_date, :city, :user_id, :car_id)
     end
 
     def reserve_param
