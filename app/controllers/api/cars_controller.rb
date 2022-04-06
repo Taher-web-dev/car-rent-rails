@@ -9,32 +9,20 @@ module Api
 
     def create
       @car = Car.new(car_params)
-      respond_to do |format|
-        if @car.save
-          format.json { render :show, status: :created, location: @car }
-        else
-          format.json { render json: @car.errors, status: :unprocessable_entity }
-        end
-      end
-    end
-
-    def destroy
-      @car = Car.find(params[:id])
-      if @car.destroy
+      if @car.save
         respond_to do |format|
-          format.json { render json: 'Car deleted successfully.'.to_json, status: :ok }
+          format.json { render json: 'car created sucessfully'.to_json, status: :ok }
         end
       else
         respond_to do |format|
-          format.json { render json: 'Car could not be deleted!'.to_json, status: :not_ok }
+          format.json { render json: 'Something went wrong'.to_json, status: :ok }
         end
       end
     end
 
     def update
-      @car = Car.find(params[:id])
-      nb_like = @car.likes_counter
-      if @car.update(likes_counter: nb_like + 1)
+      @car = Car.find(update_param[:id])
+      if @car.update(update_param)
         respond_to do |format|
           format.json { render json: 'Car updated successfully.'.to_json, status: :ok }
         end
@@ -47,9 +35,14 @@ module Api
 
     private
 
+    def update_param
+      params.require(:car).permit(:brand, :model, :model_year, :description, :rent_fee, :photo_url, :reserved,
+                                  :likes_counter, :reservation_counter)
+    end
+
     def car_params
-      params.require(:user).permit(:brand, :model, :model_year, :description, :rent_fee, :photo_url, :reserved,
-                                   :likes_counter, :reservation_counter)
+      params.require(:car).permit(:brand, :model, :model_year, :description, :rent_fee, :photo_url, :reserved,
+                                  :likes_counter, :reservation_counter)
     end
   end
 end
