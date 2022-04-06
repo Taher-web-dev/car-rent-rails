@@ -33,17 +33,16 @@ module Api
       end
     end
 
-
     private
 
     def update_param
       params.require(:car).permit(:brand, :model, :model_year, :description, :rent_fee, :photo_url, :reserved,
-      :likes_counter, :reservation_counter)
+                                  :likes_counter, :reservation_counter)
     end
 
     def car_params
       params.require(:car).permit(:brand, :model, :model_year, :description, :rent_fee, :photo_url, :reserved,
-                                   :likes_counter, :reservation_counter)
+                                  :likes_counter, :reservation_counter)
     end
   end
 end
