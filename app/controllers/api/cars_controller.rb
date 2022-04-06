@@ -33,6 +33,14 @@ module Api
       end
     end
 
+    def destroy
+      @car = Car.find(params[:id])
+      if @car.destroy
+        render json: { reservation: @reservation, message: 'Reservation successfully deleted' }
+      else
+        render json: @reservation.errors, status: :unprocessable_entity
+      end
+    end
     private
 
     def update_param
