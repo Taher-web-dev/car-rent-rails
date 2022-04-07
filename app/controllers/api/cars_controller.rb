@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 
 module Api
   class CarsController < ApplicationController
@@ -36,9 +35,13 @@ module Api
     def destroy
       @car = Car.find(params[:id])
       if @car.destroy
-        render json: { car: @car, status: :ok }
+        respond_to do |format|
+          format.json{ render json: 'Car deleted successfuly'.to_json, status: :ok }
+        end
       else
-        render json: @car.errors, status: :unprocessable_entity
+        respond_to do |format|
+          format.json { render json: 'Something went wrong'.to_json, status: :unprocessable_entity }
+        end
       end
     end
     private
