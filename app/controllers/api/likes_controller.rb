@@ -33,7 +33,7 @@ class Api::LikesController < ApplicationController
       @car.update(likes_counter: like_nbr + 1)
       Like.create(likes_param)
       respond_to do |format|
-        format.json { render json: 'Likes incremented successfully!'.to_json, status: :ok }
+        format.json { render json: 'Likes incremented successfully!'.to_json, status: :unprocessable_entity }
       end
     end
   end

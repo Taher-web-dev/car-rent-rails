@@ -33,7 +33,7 @@ module Api
         end
       else
         respond_to do |format|
-          format.json { render json: 'User could not be created!'.to_json, status: :not_created }
+          format.json { render json: 'User could not be created!'.to_json, status: :unprocessable_entity }
         end
       end
     end
