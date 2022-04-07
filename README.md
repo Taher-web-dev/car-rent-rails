@@ -62,12 +62,6 @@ Kaban Before                             |  Kaban After
   rails s
 ```
 
-### Test
-
-```sh
-  rspec
-```
-
 
 ## Authors
 
@@ -97,10 +91,6 @@ Kaban Before                             |  Kaban After
 Contributions, issues, and feature requests are welcome!
 
 Feel free to check the [issues page](../../issues/).
-
-## Acknowledgments
-
-Original design idea by Murat Korkmaz on Behance.
 
 ## Show your support
 
