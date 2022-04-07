@@ -1,7 +1,7 @@
 class Api::LikesController < ApplicationController
-  def_param_group :like do
+  def_param_group :likes do
     param :id, :number, desc: 'likes id'
-    param :like, Hash do
+    param :likes, Hash do
       param :car_id, String, required: true, desc:'Id of car to be liked'
       param :user_id, String, required: true, desc:'Id of the user who adds likes'
     end

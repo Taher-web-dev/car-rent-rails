@@ -63,7 +63,7 @@ module Api
     private
 
     def car_params
-      params.require(:user).permit(:brand, :model, :model_year, :description, :rent_fee, :photo_url, :reserved,
+      params.require(:car).permit(:brand, :model, :model_year, :description, :rent_fee, :photo_url, :reserved,
                                    :likes_counter, :reservation_counter)
     end
   end
