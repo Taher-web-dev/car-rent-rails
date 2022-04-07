@@ -9,7 +9,7 @@
 - Postgresql
 
 
-[Backend** Link](https://github.com/Taher-web-dev/car-rent-front-end/)
+[Front-end Link](https://github.com/Taher-web-dev/car-rent-front-end/)
 
 ## Kaban board
 
