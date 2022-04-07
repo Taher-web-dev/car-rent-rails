@@ -46,7 +46,6 @@ module Api
             format.json {render json: 'Something went wrong.'.to_json, status: :unprocessable_entity }
           end
         end
-      end
     end
     api :DELETE, '/cars/:id', 'Delete a specific car'
     returns code: 200, desc: 'Car deleted successfully.'
