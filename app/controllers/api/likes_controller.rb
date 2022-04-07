@@ -30,3 +30,4 @@ class LikesController < ApplicationController
     params.require(:likes).permit(:user_id, :car_id)
   end
 end
+end

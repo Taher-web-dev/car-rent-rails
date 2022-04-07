@@ -10,5 +10,6 @@ Rails.application.routes.draw do
     resources :cars, only: [:index, :create, :destroy, :update]
     resources :reservations, only: [:index, :create, :destroy, :update]
     resources :current_infos, only: [:index]
+    resources :likes, only: [:index, :create]
   end
 end
