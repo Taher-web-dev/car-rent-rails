@@ -11,7 +11,7 @@
 
 [Front-end Link](https://github.com/Taher-web-dev/car-rent-front-end/)
 
-[Api](API: https://warm-inlet-48309.herokuapp.com/api/users)
+[Api endpoint Link](https://warm-inlet-48309.herokuapp.com/api/users)
 
 ## Kaban board
 
