@@ -29,7 +29,7 @@ module Api
       @user = User.new(user_params)
       if @user.save
         respond_to do |format|
-          format.json { render json: 'User created successfully.'.to_json, status: :created }
+          format.json { render json: 'User created successfully.'.to_json, status: :ok }
         end
       else
         respond_to do |format|
