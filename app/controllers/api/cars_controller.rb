@@ -39,9 +39,9 @@ module Api
       @car = Car.new(car_params)
       respond_to do |format|
         if @car.save
-          format.json { render :show, status: :created, location: @car }
+          format.json { status: :created, location: @car }
         else
-          format.json { render json: @car.errors, status: :unprocessable_entity }
+          format.json { status: :unprocessable_entity }
         end
       end
     end
