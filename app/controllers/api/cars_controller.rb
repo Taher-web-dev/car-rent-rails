@@ -29,7 +29,18 @@ module Api
       end
     end
 
-
+    def destroy
+      @car = Car.find(params[:id])
+      if @car.destroy
+        respond_to do |format|
+          format.json { render json: 'Car deleted successfully.'.to_json, status: :ok }
+        end
+      else
+        respond_to do |format|
+          format.json { render json: 'Car could not be deleted!'.to_json, status: :not_ok }
+        end
+      end
+    end
     private
 
     def update_param
