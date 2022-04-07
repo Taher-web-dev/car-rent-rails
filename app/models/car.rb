@@ -8,4 +8,5 @@ class Car < ApplicationRecord
   validates :description, presence: true
   validates :likes_counter, numericality: { greater_than_or_equal_to: 0 }
   has_many :likes, dependent: :destroy
+  has_many :reservations, dependent: :nullify
 end
