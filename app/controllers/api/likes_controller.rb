@@ -17,8 +17,8 @@ class Api::LikesController < ApplicationController
     render json: { likes: @likes }
   end
   api :POST, '/likes/', 'Manage a new like'
-  returns :like, code: 200, desc: 'Manage like'  
-  param_group :like
+  returns :likes, code: 200, desc: 'Manage like' 
+  param_group :likes
   def create
     @like = Like.find_by(likes_param)
     @car = Car.find(likes_param[:car_id])
