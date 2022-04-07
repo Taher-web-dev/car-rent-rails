@@ -37,11 +37,14 @@ module Api
     param_group :car
     def create
       @car = Car.new(car_params)
-      respond_to do |format|
         if @car.save
-          format.json { status: :created, location: @car }
+          respond_to do |format|
+            format.json {render json: 'Car added successfully.'.to_json, status: :created, location: @car }
+          end
         else
-          format.json { status: :unprocessable_entity }
+          respond_to do |format|
+            format.json {render json: 'Something went wrong.'.to_json, status: :unprocessable_entity }
+          end
         end
       end
     end

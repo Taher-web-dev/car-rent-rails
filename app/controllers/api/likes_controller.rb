@@ -1,4 +1,5 @@
-class Api::LikesController < ApplicationController
+module Api
+class LikesController < ApplicationController
   def_param_group :likes do
     param :id, :number, desc: 'likes id'
     param :likes, Hash do
@@ -42,4 +43,5 @@ class Api::LikesController < ApplicationController
   def likes_param
     params.require(:likes).permit(:user_id, :car_id)
   end
+end
 end
